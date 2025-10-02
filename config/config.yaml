@@ -1,0 +1,238 @@
+# Main Configuration File for Financial Risk Governance BI Platform
+
+# Application Settings
+app:
+  name: "Financial Risk Governance BI"
+  version: "1.0.0"
+  environment: "development"
+  debug: true
+  host: "localhost"
+  port: 8000
+
+# Database Configuration
+database:
+  # Main transactional database
+  primary:
+    type: "postgresql"
+    host: "localhost"
+    port: 5432
+    database: "risk_governance"
+    username: "${DB_USERNAME}"
+    password: "${DB_PASSWORD}"
+    pool_size: 20
+    max_overflow: 50
+    echo: false
+
+  # Data warehouse for analytics
+  warehouse:
+    type: "postgresql"
+    host: "localhost"
+    port: 5433
+    database: "risk_warehouse"
+    username: "${DW_USERNAME}"
+    password: "${DW_PASSWORD}"
+    pool_size: 10
+    max_overflow: 20
+
+# Redis Configuration (for caching and sessions)
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  password: "${REDIS_PASSWORD}"
+  max_connections: 100
+
+# Risk Assessment Configuration
+risk_assessment:
+  # Credit Risk Parameters
+  credit:
+    default_pd_threshold: 0.05
+    high_risk_threshold: 0.15
+    concentration_limit: 0.25
+    portfolio_segments:
+      - "retail"
+      - "corporate"
+      - "sme"
+      - "financial_institutions"
+
+  # Market Risk Parameters
+  market:
+    confidence_levels: [0.95, 0.99, 0.999]
+    holding_periods: [1, 10, 250]  # days
+    var_methods: ["historical", "parametric", "monte_carlo"]
+    stress_scenarios:
+      - "2008_financial_crisis"
+      - "covid_2020"
+      - "interest_rate_shock"
+
+  # Operational Risk Parameters
+  operational:
+    loss_thresholds:
+      low: 10000
+      medium: 100000
+      high: 1000000
+    risk_categories:
+      - "internal_fraud"
+      - "external_fraud" 
+      - "employment_practices"
+      - "clients_products"
+      - "damage_physical_assets"
+      - "business_disruption"
+      - "execution_delivery"
+
+  # Liquidity Risk Parameters
+  liquidity:
+    lcr_minimum: 1.0  # Liquidity Coverage Ratio
+    nsfr_minimum: 1.0  # Net Stable Funding Ratio
+    stress_periods: [30, 90, 365]  # days
+    currency_concentrations:
+      - "USD"
+      - "EUR" 
+      - "GBP"
+      - "JPY"
+
+# Machine Learning Configuration
+ml_models:
+  # Model training parameters
+  training:
+    test_size: 0.2
+    validation_size: 0.15
+    cross_validation_folds: 5
+    random_state: 42
+
+  # Credit Risk Models
+  credit_models:
+    default_prediction:
+      algorithm: "gradient_boosting"
+      hyperparameters:
+        n_estimators: 100
+        learning_rate: 0.1
+        max_depth: 6
+      features:
+        - "debt_to_income"
+        - "credit_score"
+        - "employment_length"
+        - "loan_amount"
+        - "collateral_value"
+
+  # Market Risk Models
+  market_models:
+    var_prediction:
+      algorithm: "lstm"
+      sequence_length: 252  # trading days
+      features:
+        - "returns"
+        - "volatility"
+        - "volume"
+        - "market_sentiment"
+
+# Dashboard Configuration
+dashboards:
+  # Refresh intervals (in seconds)
+  refresh_intervals:
+    real_time: 30
+    hourly: 3600
+    daily: 86400
+
+  # Chart configurations
+  charts:
+    default_height: 400
+    color_scheme: "plotly"
+    font_family: "Arial, sans-serif"
+
+  # KPI thresholds for color coding
+  kpi_thresholds:
+    tier1_capital_ratio:
+      green: 0.12
+      yellow: 0.10
+      red: 0.08
+    liquidity_coverage_ratio:
+      green: 1.2
+      yellow: 1.1
+      red: 1.0
+
+# Data Processing Configuration
+data_processing:
+  # Batch processing settings
+  batch_size: 10000
+  max_workers: 4
+  timeout_seconds: 3600
+
+  # Data validation rules
+  validation:
+    required_fields:
+      - "customer_id"
+      - "transaction_date"
+      - "amount"
+    data_quality_threshold: 0.95
+
+  # ETL schedules
+  etl_schedules:
+    daily_data_load: "0 2 * * *"    # 2 AM daily
+    weekly_reports: "0 6 * * 1"     # 6 AM Monday
+    monthly_models: "0 8 1 * *"     # 8 AM 1st of month
+
+# Logging Configuration
+logging:
+  version: 1
+  formatters:
+    default:
+      format: "[%(asctime)s] %(levelname)s in %(module)s: %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: default
+      stream: ext://sys.stdout
+    file:
+      class: logging.FileHandler
+      level: INFO
+      formatter: default
+      filename: logs/app.log
+  root:
+    level: INFO
+    handlers: [console, file]
+
+# Security Configuration
+security:
+  jwt:
+    secret_key: "${JWT_SECRET_KEY}"
+    algorithm: "HS256"
+    access_token_expire_minutes: 60
+    refresh_token_expire_days: 30
+
+  rate_limiting:
+    requests_per_minute: 100
+    burst_size: 20
+
+# Monitoring and Alerting
+monitoring:
+  # Prometheus metrics
+  prometheus:
+    enabled: true
+    port: 9090
+
+  # Alert thresholds
+  alerts:
+    system:
+      cpu_threshold: 80
+      memory_threshold: 85
+      disk_threshold: 90
+    business:
+      var_breach_threshold: 1.1
+      concentration_limit_breach: 1.05
+      liquidity_warning_threshold: 1.05
+
+# External APIs and Services
+external_services:
+  # Market data providers
+  market_data:
+    provider: "bloomberg"
+    api_endpoint: "https://api.bloomberg.com"
+    api_key: "${BLOOMBERG_API_KEY}"
+    rate_limit: 1000  # requests per hour
+
+  # Regulatory data feeds
+  regulatory:
+    fed_data_endpoint: "https://api.federalreserve.gov"
+    ecb_data_endpoint: "https://sdw-wsrest.ecb.europa.eu"
