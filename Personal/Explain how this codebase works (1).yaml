@@ -1,0 +1,6 @@
+---
+type: agent_mode
+name: Explain how this codebase works
+query: "As a technical expert, analyze this codebase and provide a clear project overview:\n\n- Core Components: Describe the major components or modules, their responsibilities, and any key classes or functions they contain. Note any relevant design patterns or architectural approaches.\n\n- Component Interactions: Explain how the components interact, including data and control flow, communication methods, and any APIs or interfaces used. Highlight use of dependency injection or service patterns if applicable.\n\n- Deployment Architecture: Summarize the deployment setup, including build steps, external dependencies, required environments (e.g., dev, staging, prod), and infrastructure or containerization details.\n\n- Runtime Behavior: Describe how the application initializes, handles requests and responses, runs business workflows, and manages errors or background tasks.\n\nStay focused on providing a technical overview that helps a developer quickly understand how the system works. Avoid personal opinions or implementation suggestions unless specifically asked."
+description: "Analyze the structure of this codebase and provide a clear breakdown of its components, interactions, deployment setup, and runtime behavior to help developers quickly understand how the system works."
+arguments: []

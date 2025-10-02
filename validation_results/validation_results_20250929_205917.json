@@ -1,0 +1,533 @@
+{
+  "cross_validation": {
+    "elastic": {
+      "error": "\nAll the 5 fits failed.\nIt is very likely that your model is misconfigured.\nYou can try to debug the error by setting error_score='raise'.\n\nBelow are more details about the failures:\n--------------------------------------------------------------------------------\n5 fits failed with the following error:\nTraceback (most recent call last):\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\model_selection\\_validation.py\", line 859, in _fit_and_score\n    estimator.fit(X_train, y_train, **fit_params)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\base.py\", line 1365, in wrapper\n    return fit_method(estimator, *args, **kwargs)\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\linear_model\\_coordinate_descent.py\", line 986, in fit\n    X, y = validate_data(\n           ~~~~~~~~~~~~~^\n        self,\n        ^^^^^\n    ...<9 lines>...\n        y_numeric=True,\n        ^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 2971, in validate_data\n    X, y = check_X_y(X, y, **check_params)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1368, in check_X_y\n    X = check_array(\n        X,\n    ...<12 lines>...\n        input_name=\"X\",\n    )\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1105, in check_array\n    _assert_all_finite(\n    ~~~~~~~~~~~~~~~~~~^\n        array,\n        ^^^^^^\n    ...<2 lines>...\n        allow_nan=ensure_all_finite == \"allow-nan\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 120, in _assert_all_finite\n    _assert_all_finite_element_wise(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        X,\n        ^^\n    ...<4 lines>...\n        input_name=input_name,\n        ^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 169, in _assert_all_finite_element_wise\n    raise ValueError(msg_err)\nValueError: Input X contains NaN.\nElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values\n"
+    },
+    "ensemble": {
+      "error": "\nAll the 5 fits failed.\nIt is very likely that your model is misconfigured.\nYou can try to debug the error by setting error_score='raise'.\n\nBelow are more details about the failures:\n--------------------------------------------------------------------------------\n5 fits failed with the following error:\nTraceback (most recent call last):\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\model_selection\\_validation.py\", line 859, in _fit_and_score\n    estimator.fit(X_train, y_train, **fit_params)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\base.py\", line 1365, in wrapper\n    return fit_method(estimator, *args, **kwargs)\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\ensemble\\_voting.py\", line 678, in fit\n    return super().fit(X, y, **fit_params)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\ensemble\\_voting.py\", line 99, in fit\n    self.estimators_ = Parallel(n_jobs=self.n_jobs)(\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        delayed(_fit_single_estimator)(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<8 lines>...\n        if clf != \"drop\"\n        ^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\parallel.py\", line 82, in __call__\n    return super().__call__(iterable_with_config_and_warning_filters)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\joblib\\parallel.py\", line 1986, in __call__\n    return output if self.return_generator else list(output)\n                                                ~~~~^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\joblib\\parallel.py\", line 1914, in _get_sequential_output\n    res = func(*args, **kwargs)\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\parallel.py\", line 147, in __call__\n    return self.function(*args, **kwargs)\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\ensemble\\_base.py\", line 39, in _fit_single_estimator\n    estimator.fit(X, y, **fit_params)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\base.py\", line 1365, in wrapper\n    return fit_method(estimator, *args, **kwargs)\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\ensemble\\_gb.py\", line 658, in fit\n    X, y = validate_data(\n           ~~~~~~~~~~~~~^\n        self,\n        ^^^^^\n    ...<4 lines>...\n        multi_output=True,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 2971, in validate_data\n    X, y = check_X_y(X, y, **check_params)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1368, in check_X_y\n    X = check_array(\n        X,\n    ...<12 lines>...\n        input_name=\"X\",\n    )\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1105, in check_array\n    _assert_all_finite(\n    ~~~~~~~~~~~~~~~~~~^\n        array,\n        ^^^^^^\n    ...<2 lines>...\n        allow_nan=ensure_all_finite == \"allow-nan\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 120, in _assert_all_finite\n    _assert_all_finite_element_wise(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        X,\n        ^^\n    ...<4 lines>...\n        input_name=input_name,\n        ^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 169, in _assert_all_finite_element_wise\n    raise ValueError(msg_err)\nValueError: Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values\n"
+    },
+    "gradient": {
+      "error": "\nAll the 5 fits failed.\nIt is very likely that your model is misconfigured.\nYou can try to debug the error by setting error_score='raise'.\n\nBelow are more details about the failures:\n--------------------------------------------------------------------------------\n5 fits failed with the following error:\nTraceback (most recent call last):\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\model_selection\\_validation.py\", line 859, in _fit_and_score\n    estimator.fit(X_train, y_train, **fit_params)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\base.py\", line 1365, in wrapper\n    return fit_method(estimator, *args, **kwargs)\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\ensemble\\_gb.py\", line 658, in fit\n    X, y = validate_data(\n           ~~~~~~~~~~~~~^\n        self,\n        ^^^^^\n    ...<4 lines>...\n        multi_output=True,\n        ^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 2971, in validate_data\n    X, y = check_X_y(X, y, **check_params)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1368, in check_X_y\n    X = check_array(\n        X,\n    ...<12 lines>...\n        input_name=\"X\",\n    )\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1105, in check_array\n    _assert_all_finite(\n    ~~~~~~~~~~~~~~~~~~^\n        array,\n        ^^^^^^\n    ...<2 lines>...\n        allow_nan=ensure_all_finite == \"allow-nan\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 120, in _assert_all_finite\n    _assert_all_finite_element_wise(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        X,\n        ^^\n    ...<4 lines>...\n        input_name=input_name,\n        ^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 169, in _assert_all_finite_element_wise\n    raise ValueError(msg_err)\nValueError: Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values\n"
+    },
+    "lightgbm": {
+      "cv_scores": [
+        -0.1346579749980213,
+        -14.062001857298153,
+        -3.086944413848568,
+        -117.85170223302894,
+        -51.03210552838888
+      ],
+      "mean_cv_score": -37.23348240151252,
+      "std_cv_score": 44.20164184729682,
+      "fold_metrics": [
+        {
+          "mse": 0.1346579749980213,
+          "mae": 0.10203669604768996,
+          "r2": 0.789259379714174,
+          "rmse": 0.36695772917056985
+        },
+        {
+          "mse": 14.062001857298153,
+          "mae": 0.2990311972711824,
+          "r2": 0.07771293235735255,
+          "rmse": 3.7499335803848783
+        },
+        {
+          "mse": 3.086944413848568,
+          "mae": 0.3395533028523829,
+          "r2": -1.2538556829689838,
+          "rmse": 1.756970237041188
+        },
+        {
+          "mse": 117.85170223302894,
+          "mae": 1.1685140304775805,
+          "r2": 0.2869166383532815,
+          "rmse": 10.855952387194268
+        },
+        {
+          "mse": 51.03210552838888,
+          "mae": 1.376282614392788,
+          "r2": 0.07060748909145109,
+          "rmse": 7.143675911489048
+        }
+      ],
+      "aggregate_metrics": {
+        "mean_mse": 37.23348240151252,
+        "std_mse": 44.20164184729682,
+        "mean_mae": 0.6570835682083247,
+        "std_mae": 0.5130131354684039,
+        "mean_r2": -0.005871848690544912,
+        "std_r2": 0.6764995083339708
+      }
+    },
+    "neural": {
+      "error": "\nAll the 5 fits failed.\nIt is very likely that your model is misconfigured.\nYou can try to debug the error by setting error_score='raise'.\n\nBelow are more details about the failures:\n--------------------------------------------------------------------------------\n5 fits failed with the following error:\nTraceback (most recent call last):\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\model_selection\\_validation.py\", line 859, in _fit_and_score\n    estimator.fit(X_train, y_train, **fit_params)\n    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\base.py\", line 1365, in wrapper\n    return fit_method(estimator, *args, **kwargs)\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\neural_network\\_multilayer_perceptron.py\", line 849, in fit\n    return self._fit(X, y, sample_weight=sample_weight, incremental=False)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\neural_network\\_multilayer_perceptron.py\", line 473, in _fit\n    X, y = self._validate_input(X, y, incremental, reset=first_pass)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\neural_network\\_multilayer_perceptron.py\", line 1760, in _validate_input\n    X, y = validate_data(\n           ~~~~~~~~~~~~~^\n        self,\n        ^^^^^\n    ...<6 lines>...\n        reset=reset,\n        ^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 2971, in validate_data\n    X, y = check_X_y(X, y, **check_params)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1368, in check_X_y\n    X = check_array(\n        X,\n    ...<12 lines>...\n        input_name=\"X\",\n    )\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 1105, in check_array\n    _assert_all_finite(\n    ~~~~~~~~~~~~~~~~~~^\n        array,\n        ^^^^^^\n    ...<2 lines>...\n        allow_nan=ensure_all_finite == \"allow-nan\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 120, in _assert_all_finite\n    _assert_all_finite_element_wise(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        X,\n        ^^\n    ...<4 lines>...\n        input_name=input_name,\n        ^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\Krishnendu Rarhi\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 169, in _assert_all_finite_element_wise\n    raise ValueError(msg_err)\nValueError: Input X contains NaN.\nMLPRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values\n"
+    },
+    "random": {
+      "cv_scores": [
+        -0.08273699623925158,
+        -50.37848622495567,
+        -0.056366019858375256,
+        -14.242913723594478,
+        -1.2052760527990118
+      ],
+      "mean_cv_score": -13.193155803489356,
+      "std_cv_score": 19.349513576740225,
+      "fold_metrics": [
+        {
+          "mse": 0.0827369962392516,
+          "mae": 0.044550160069573984,
+          "r2": 0.8705160544089412,
+          "rmse": 0.28764039396310737
+        },
+        {
+          "mse": 50.37848622495568,
+          "mae": 0.8863263812638653,
+          "r2": -2.3041829182077267,
+          "rmse": 7.097780373113532
+        },
+        {
+          "mse": 0.056366019858375256,
+          "mae": 0.05389135536906755,
+          "r2": 0.9588457525784351,
+          "rmse": 0.237415289858036
+        },
+        {
+          "mse": 14.242913723594478,
+          "mae": 0.34590515518303633,
+          "r2": 0.9138206355510874,
+          "rmse": 3.773978500679949
+        },
+        {
+          "mse": 1.2052760527990118,
+          "mae": 0.11924875895326853,
+          "r2": 0.9780496116033137,
+          "rmse": 1.09785065140893
+        }
+      ],
+      "aggregate_metrics": {
+        "mean_mse": 13.193155803489358,
+        "std_mse": 19.34951357674023,
+        "mean_mae": 0.28998436216776236,
+        "std_mae": 0.31745218236922357,
+        "mean_r2": 0.2834098271868101,
+        "std_r2": 1.2943327118455894
+      }
+    },
+    "xgboost": {
+      "cv_scores": [
+        -0.4906954683884799,
+        -133.5663177129449,
+        -0.7444050872731806,
+        -32.354833045974985,
+        -22.737621113211183
+      ],
+      "mean_cv_score": -37.978774485558546,
+      "std_cv_score": 49.38148281809345,
+      "fold_metrics": [
+        {
+          "mse": 0.4906954683884799,
+          "mae": 0.052349354837346235,
+          "r2": 0.23205835093575622,
+          "rmse": 0.7004965869927418
+        },
+        {
+          "mse": 133.5663177129449,
+          "mae": 1.3902563247154334,
+          "r2": -7.760238318085886,
+          "rmse": 11.5570895000837
+        },
+        {
+          "mse": 0.7444050872731806,
+          "mae": 0.09374435957743948,
+          "r2": 0.45649114093053933,
+          "rmse": 0.8627891325655305
+        },
+        {
+          "mse": 32.354833045974985,
+          "mae": 0.5006122666582866,
+          "r2": 0.8042311423867059,
+          "rmse": 5.688130892127482
+        },
+        {
+          "mse": 22.737621113211183,
+          "mae": 0.661394556003003,
+          "r2": 0.5859043133789794,
+          "rmse": 4.768398170582149
+        }
+      ],
+      "aggregate_metrics": {
+        "mean_mse": 37.978774485558546,
+        "std_mse": 49.38148281809345,
+        "mean_mae": 0.5396713723583018,
+        "std_mae": 0.48500939327799175,
+        "mean_r2": -1.136310674090781,
+        "std_r2": 3.317155282709359
+      }
+    }
+  },
+  "backtesting": {
+    "elastic": {
+      "error": "Input X contains NaN.\nElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "ensemble": {
+      "error": "Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "gradient": {
+      "error": "Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "lightgbm": {
+      "periods": [
+        {
+          "start_year": 2015,
+          "end_year": 2017,
+          "train_size": 11770,
+          "test_size": 642,
+          "mse": 0.9338670211430011,
+          "mae": 0.20214128770775736,
+          "r2": 0.9915281016066758,
+          "rmse": 0.9663679532884982
+        },
+        {
+          "start_year": 2016,
+          "end_year": 2018,
+          "train_size": 11984,
+          "test_size": 642,
+          "mse": 0.9819188250047275,
+          "mae": 0.20062874831878313,
+          "r2": 0.9910675304188148,
+          "rmse": 0.9909181727088909
+        },
+        {
+          "start_year": 2017,
+          "end_year": 2019,
+          "train_size": 12198,
+          "test_size": 642,
+          "mse": 0.6432435947233449,
+          "mae": 0.15990488114911836,
+          "r2": 0.9941476822841596,
+          "rmse": 0.802024684609735
+        },
+        {
+          "start_year": 2018,
+          "end_year": 2020,
+          "train_size": 12412,
+          "test_size": 642,
+          "mse": 1.6862314770789737,
+          "mae": 0.1700736171348897,
+          "r2": 0.9846573034885587,
+          "rmse": 1.2985497591848276
+        }
+      ],
+      "summary": {
+        "total_periods": 4,
+        "avg_mse": 1.061315229487512,
+        "std_mse": 0.38335722347218004,
+        "avg_mae": 0.18318713357763713,
+        "avg_r2": 0.9903501544495522,
+        "min_r2": 0.9846573034885587,
+        "max_r2": 0.9941476822841596
+      }
+    },
+    "neural": {
+      "error": "Input X contains NaN.\nMLPRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "random": {
+      "periods": [
+        {
+          "start_year": 2015,
+          "end_year": 2017,
+          "train_size": 11770,
+          "test_size": 642,
+          "mse": 0.029787985759602734,
+          "mae": 0.062202338559203506,
+          "r2": 0.9997297679616224,
+          "rmse": 0.17259196319528536
+        },
+        {
+          "start_year": 2016,
+          "end_year": 2018,
+          "train_size": 11984,
+          "test_size": 642,
+          "mse": 0.013329680049533336,
+          "mae": 0.049789576761808486,
+          "r2": 0.9998787405246368,
+          "rmse": 0.11545423357128717
+        },
+        {
+          "start_year": 2017,
+          "end_year": 2019,
+          "train_size": 12198,
+          "test_size": 642,
+          "mse": 0.043791603786440404,
+          "mae": 0.0555254950441717,
+          "r2": 0.9996015780324176,
+          "rmse": 0.20926443507304437
+        },
+        {
+          "start_year": 2018,
+          "end_year": 2020,
+          "train_size": 12412,
+          "test_size": 642,
+          "mse": 0.016951918063003453,
+          "mae": 0.050644185686531465,
+          "r2": 0.9998457577517305,
+          "rmse": 0.13019953173112203
+        }
+      ],
+      "summary": {
+        "total_periods": 4,
+        "avg_mse": 0.025965296914644984,
+        "std_mse": 0.011971737327742973,
+        "avg_mae": 0.054540399012928786,
+        "avg_r2": 0.9997639610676018,
+        "min_r2": 0.9996015780324176,
+        "max_r2": 0.9998787405246368
+      }
+    },
+    "xgboost": {
+      "periods": [
+        {
+          "start_year": 2015,
+          "end_year": 2017,
+          "train_size": 11770,
+          "test_size": 642,
+          "mse": 0.1945656061922052,
+          "mae": 0.0679749924301123,
+          "r2": 0.9982349306601721,
+          "rmse": 0.4410959149575126
+        },
+        {
+          "start_year": 2016,
+          "end_year": 2018,
+          "train_size": 11984,
+          "test_size": 642,
+          "mse": 2.905448927146231,
+          "mae": 0.1576594433087316,
+          "r2": 0.9735692671323457,
+          "rmse": 1.7045377458848576
+        },
+        {
+          "start_year": 2017,
+          "end_year": 2019,
+          "train_size": 12198,
+          "test_size": 642,
+          "mse": 2.4825295784478367,
+          "mae": 0.18359477608327257,
+          "r2": 0.9774136082329794,
+          "rmse": 1.575604512067618
+        },
+        {
+          "start_year": 2018,
+          "end_year": 2020,
+          "train_size": 12412,
+          "test_size": 642,
+          "mse": 5.020322841880289,
+          "mae": 0.19446429791901906,
+          "r2": 0.9543210461912056,
+          "rmse": 2.240607694773962
+        }
+      ],
+      "summary": {
+        "total_periods": 4,
+        "avg_mse": 2.650716738416641,
+        "std_mse": 1.7132488784946636,
+        "avg_mae": 0.1509233774352839,
+        "avg_r2": 0.9758847130541757,
+        "min_r2": 0.9543210461912056,
+        "max_r2": 0.9982349306601721
+      }
+    }
+  },
+  "stress_testing": {
+    "elastic": {
+      "error": "Input X contains NaN.\nElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "ensemble": {
+      "error": "Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "gradient": {
+      "error": "Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "lightgbm": {
+      "economic_shock": {
+        "baseline_mse": 0.9179972728760719,
+        "stressed_mse": 1.7834361419572513,
+        "mse_change": 0.8654388690811794,
+        "mse_change_pct": 94.27466667409286,
+        "prediction_change_mean": 0.0021906788654401216,
+        "prediction_change_std": 1.3496638918914263
+      },
+      "market_volatility": {
+        "baseline_mse": 0.9179972728760719,
+        "stressed_mse": 0.9179972728760719,
+        "mse_change": 0.0,
+        "mse_change_pct": 0.0,
+        "prediction_change_mean": 0.0,
+        "prediction_change_std": 0.0
+      },
+      "financial_crisis": {
+        "baseline_mse": 0.9179972728760719,
+        "stressed_mse": 0.9179972728760719,
+        "mse_change": 0.0,
+        "mse_change_pct": 0.0,
+        "prediction_change_mean": 0.0,
+        "prediction_change_std": 0.0
+      },
+      "regulatory_tightening": {
+        "baseline_mse": 0.9179972728760719,
+        "stressed_mse": 1.6638230098631688,
+        "mse_change": 0.7458257369870969,
+        "mse_change_pct": 81.24487501476293,
+        "prediction_change_mean": -0.008865724802347017,
+        "prediction_change_std": 1.2042848288367842
+      }
+    },
+    "neural": {
+      "error": "Input X contains NaN.\nMLPRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "random": {
+      "economic_shock": {
+        "baseline_mse": 0.025010965532617245,
+        "stressed_mse": 0.8003606132107303,
+        "mse_change": 0.775349647678113,
+        "mse_change_pct": 3100.038847628516,
+        "prediction_change_mean": 0.0018538190869623835,
+        "prediction_change_std": 0.8541125280415682
+      },
+      "market_volatility": {
+        "baseline_mse": 0.025010965532617245,
+        "stressed_mse": 0.02501096553261726,
+        "mse_change": 1.3877787807814457e-17,
+        "mse_change_pct": 5.548681353271303e-14,
+        "prediction_change_mean": 4.156576830457994e-18,
+        "prediction_change_std": 5.348087908258017e-16
+      },
+      "financial_crisis": {
+        "baseline_mse": 0.025010965532617245,
+        "stressed_mse": 0.025010965532617245,
+        "mse_change": 0.0,
+        "mse_change_pct": 0.0,
+        "prediction_change_mean": 1.6153506145515624e-17,
+        "prediction_change_std": 7.657026906256897e-16
+      },
+      "regulatory_tightening": {
+        "baseline_mse": 0.025010965532617245,
+        "stressed_mse": 0.04793229710657357,
+        "mse_change": 0.022921331573956323,
+        "mse_change_pct": 91.64512878986702,
+        "prediction_change_mean": 0.01965024738880561,
+        "prediction_change_std": 0.17153462270073375
+      }
+    },
+    "xgboost": {
+      "economic_shock": {
+        "baseline_mse": 3.8868018644795446e-05,
+        "stressed_mse": 0.022804195451835974,
+        "mse_change": 0.02276532743319118,
+        "mse_change_pct": 58570.846230258074,
+        "prediction_change_mean": 0.017649775370955467,
+        "prediction_change_std": 0.15006893873214722
+      },
+      "market_volatility": {
+        "baseline_mse": 3.8868018644795446e-05,
+        "stressed_mse": 3.8868018644795446e-05,
+        "mse_change": 0.0,
+        "mse_change_pct": 0.0,
+        "prediction_change_mean": 0.0,
+        "prediction_change_std": 0.0
+      },
+      "financial_crisis": {
+        "baseline_mse": 3.8868018644795446e-05,
+        "stressed_mse": 3.8868018644795446e-05,
+        "mse_change": 0.0,
+        "mse_change_pct": 0.0,
+        "prediction_change_mean": 0.0,
+        "prediction_change_std": 0.0
+      },
+      "regulatory_tightening": {
+        "baseline_mse": 3.8868018644795446e-05,
+        "stressed_mse": 0.009233906190743145,
+        "mse_change": 0.00919503817209835,
+        "mse_change_pct": 23657.07976043074,
+        "prediction_change_mean": -0.0029043913818895817,
+        "prediction_change_std": 0.09614882618188858
+      }
+    }
+  },
+  "performance_monitoring": {
+    "elastic": {
+      "error": "Input X contains NaN.\nElasticNet does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "ensemble": {
+      "error": "Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "gradient": {
+      "error": "Input X contains NaN.\nGradientBoostingRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "lightgbm": {
+      "historical_performance": {
+        "mse": 0.8398811733117599,
+        "r2": 0.9781121024081012
+      },
+      "recent_performance": {
+        "mse": 3.8672593366493726,
+        "r2": 0.9648120728786577
+      },
+      "performance_changes": {
+        "mse_change_pct": 360.45315212868377,
+        "r2_change_pct": 1.3597653578458961
+      },
+      "flags": {
+        "significant_mse_increase": true,
+        "significant_r2_decrease": false,
+        "requires_retraining": true
+      },
+      "monitoring_date": "2025-09-29T21:01:06.496872"
+    },
+    "neural": {
+      "error": "Input X contains NaN.\nMLPRegressor does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+    },
+    "random": {
+      "historical_performance": {
+        "mse": 0.029052888536115446,
+        "r2": 0.9992428611698487
+      },
+      "recent_performance": {
+        "mse": 0.01986250620909502,
+        "r2": 0.9998192724200549
+      },
+      "performance_changes": {
+        "mse_change_pct": -31.633282575658267,
+        "r2_change_pct": -0.057684800422922976
+      },
+      "flags": {
+        "significant_mse_increase": false,
+        "significant_r2_decrease": false,
+        "requires_retraining": false
+      },
+      "monitoring_date": "2025-09-29T21:01:08.321101"
+    },
+    "xgboost": {
+      "historical_performance": {
+        "mse": 5.6617718779163125e-05,
+        "r2": 0.9999985245021916
+      },
+      "recent_performance": {
+        "mse": 0.6084221306141707,
+        "r2": 0.994464008816742
+      },
+      "performance_changes": {
+        "mse_change_pct": 1074514.3499481415,
+        "r2_change_pct": 0.5534523851627418
+      },
+      "flags": {
+        "significant_mse_increase": true,
+        "significant_r2_decrease": false,
+        "requires_retraining": true
+      },
+      "monitoring_date": "2025-09-29T21:01:09.543221"
+    }
+  },
+  "timestamp": "20250929_205917"
+}

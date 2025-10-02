@@ -1,0 +1,6 @@
+---
+type: agent_mode
+name: Review and fix changes on current branch
+query: "Help me review and fix changes on my current Git branch. \n\nStart by showing the current branch, staged and unstaged changes, and recent commits. Run the appropriate linters or analyzers based on the project language (e.g., ESLint, flake8, clippy) and surface any issues. \n\nWhen judging whether there are improvements\n- take into account conventions of the current language and codebase style\n- aim for clean, simple APIs\n- report logic bugs\n- report security issues\n- report performance problems\n\nThen, display a diff of the current changes and highlight any problem areas. Suggest or apply fixes, format the code if needed, and restage the updated files. Finally, re-run checks to confirm everything is clean and ready to commit.\n\nProvide helpful feedback at each step and stop if any issues block progress. Do not perform unrelated Git actions or modify unrelated files."
+description: "Analyze your current Git branch for issues by checking status, running linters, reviewing diffs, and applying code fixes. Ensures your branch is clean and ready to commit or submit as a pull request."
+arguments: []

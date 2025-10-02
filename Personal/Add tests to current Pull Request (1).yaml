@@ -1,0 +1,6 @@
+---
+type: agent_mode
+name: Add tests to current Pull Request
+query: "Take a look at all of the changes in the PR that exists on the current branch. If no PR exists, ask the user if they want to create a PR. \n\nFor the changes that are in the current PR, try to understand if there are unit tests that should exist to exercise their functionality. If there are unit tests, suggest to the user writing those tests and describe what the tests would actually exercise. Then ask the user if they want to create the tests one by one. \n\nIf they do create the tests one at a time and run the test, making sure that it passes before creating the next test. Also, have the user look at the code for each test to make sure it's actually exercising what they think it should."
+description: ~
+arguments: []

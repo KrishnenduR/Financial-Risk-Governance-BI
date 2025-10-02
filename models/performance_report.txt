@@ -1,0 +1,65 @@
+================================================================================
+GLOBAL FINANCIAL DEVELOPMENT - PREDICTIVE MODEL PERFORMANCE REPORT
+================================================================================
+
+FINANCIAL DEVELOPMENT PREDICTION
+--------------------------------------------------
+  elastic_net:
+    RMSE: 0.1036
+    R²: 0.9999
+    MAE: 0.0688
+    MAPE: 0.8196
+  gradient_boosting:
+    RMSE: 0.4720
+    R²: 0.9980
+    MAE: 0.0673
+    MAPE: 0.2631
+  neural_network:
+    RMSE: 0.6665
+    R²: 0.9960
+    MAE: 0.2253
+    MAPE: 1.7864
+  ensemble:
+    RMSE: 0.7669
+    R²: 0.9947
+    MAE: 0.1798
+    MAPE: 0.6150
+  random_forest_tuned:
+    RMSE: 0.7688
+    R²: 0.9946
+    MAE: 0.1320
+    MAPE: 0.4539
+  random_forest:
+    RMSE: 0.8850
+    R²: 0.9929
+    MAE: 0.1374
+    MAPE: 0.4532
+  xgboost:
+    RMSE: 1.7442
+    R²: 0.9723
+    MAE: 0.3219
+    MAPE: 0.7986
+  xgboost_tuned:
+    RMSE: 2.0987
+    R²: 0.9599
+    MAE: 0.4786
+    MAPE: 1.3565
+  lightgbm:
+    RMSE: 2.9912
+    R²: 0.9186
+    MAE: 0.5582
+    MAPE: 2.0571
+
+  Top Features:
+    random_forest: access_institutions_index, ai01, ai01_ma3, dm09, ai02_growth
+    gradient_boosting: ai01, access_institutions_index, dm09, ei06, am01_ma3
+    xgboost: ai01_ma3, ei05, di03_growth, access_institutions_index, region_encoded
+    lightgbm: access_institutions_index, ai01_growth, di13, ai25, ai25_ma3
+    elastic_net: access_institutions_index, ai01, ai25, dm02, di07
+    random_forest_tuned: access_institutions_index, ai01, ai01_ma3, dm09, ai02_lag1
+    xgboost_tuned: ai01_ma3, ai02, access_institutions_index, region_encoded, di03_growth
+
+TIME SERIES FORECASTING
+--------------------------------------------------
+
+================================================================================

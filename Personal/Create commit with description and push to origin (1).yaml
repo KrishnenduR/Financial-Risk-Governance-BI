@@ -1,0 +1,10 @@
+---
+type: agent_mode
+name: Create commit with description and push to origin
+query: "1.\tReview all modified files and their changes.\n2.\tGenerate a clear, descriptive commit message summarizing the changes.\n3.\tStage all modified files using git add.\n4.\tCommit the changes using: git commit -m \"{{commit_message}}\".\n5.\tConfirm the commit was successful and display the resulting commit hash and message.\n6.\tPush the commit to the origin remote on the current branch."
+description: ~
+arguments:
+  - name: commit_message
+    arg_type: Text
+    description: ~
+    default_value: ~

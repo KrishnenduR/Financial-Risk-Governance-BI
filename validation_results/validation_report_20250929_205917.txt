@@ -1,0 +1,90 @@
+================================================================================
+MODEL VALIDATION AND TESTING REPORT
+================================================================================
+Report Generated: 2025-09-29 20:59:17
+Models Validated: 7
+
+1. CROSS-VALIDATION RESULTS
+----------------------------------------
+LIGHTGBM:
+  Mean CV Score: -37.2335
+  Std CV Score: 44.2016
+  Mean R²: -0.0059
+  Mean RMSE: 6.1019
+
+RANDOM:
+  Mean CV Score: -13.1932
+  Std CV Score: 19.3495
+  Mean R²: 0.2834
+  Mean RMSE: 3.6322
+
+XGBOOST:
+  Mean CV Score: -37.9788
+  Std CV Score: 49.3815
+  Mean R²: -1.1363
+  Mean RMSE: 6.1627
+
+2. BACKTESTING RESULTS
+----------------------------------------
+LIGHTGBM:
+  Periods Tested: 4
+  Average R²: 0.9904
+  R² Range: 0.9847 - 0.9941
+  Average MAE: 0.1832
+
+RANDOM:
+  Periods Tested: 4
+  Average R²: 0.9998
+  R² Range: 0.9996 - 0.9999
+  Average MAE: 0.0545
+
+XGBOOST:
+  Periods Tested: 4
+  Average R²: 0.9759
+  R² Range: 0.9543 - 0.9982
+  Average MAE: 0.1509
+
+3. STRESS TESTING RESULTS
+----------------------------------------
+LIGHTGBM:
+  economic_shock: +94.3% MSE change
+  market_volatility: +0.0% MSE change
+  financial_crisis: +0.0% MSE change
+  regulatory_tightening: +81.2% MSE change
+
+RANDOM:
+  economic_shock: +3100.0% MSE change
+  market_volatility: -0.0% MSE change
+  financial_crisis: -0.0% MSE change
+  regulatory_tightening: +91.6% MSE change
+
+XGBOOST:
+  economic_shock: +58570.8% MSE change
+  market_volatility: +0.0% MSE change
+  financial_crisis: +0.0% MSE change
+  regulatory_tightening: +23657.1% MSE change
+
+4. PERFORMANCE MONITORING
+----------------------------------------
+LIGHTGBM:
+  MSE Change: +360.5%
+  R² Change: +1.4%
+  ⚠️  Performance warnings detected
+
+RANDOM:
+  MSE Change: -31.6%
+  R² Change: -0.1%
+  ✓ Performance stable
+
+XGBOOST:
+  MSE Change: +1074514.3%
+  R² Change: +0.6%
+  ⚠️  Performance warnings detected
+
+5. SUMMARY AND RECOMMENDATIONS
+----------------------------------------
+Best Performing Model: RANDOM
+  Cross-Validation R²: 0.2834
+Models requiring retraining: lightgbm, xgboost
+
+================================================================================
