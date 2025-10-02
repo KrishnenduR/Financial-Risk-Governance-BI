@@ -1,0 +1,16 @@
+{
+  "last_run": "2025-09-29 13:01:17.768734",
+  "records_processed": 13268,
+  "records_inserted": 13268,
+  "records_updated": 0,
+  "processing_time": 231.79785466194153,
+  "data_quality_score": 0.7465425148444771,
+  "errors": [
+    "Data quality below threshold: 0.7465425148444771"
+  ],
+  "extraction_time": 8.117372512817383,
+  "raw_records": 13268,
+  "transformation_time": 160.2573323249817,
+  "transformed_records": 13268,
+  "loading_time": 63.407172203063965
+}

@@ -1,0 +1,472 @@
+# Data Schema Definitions for Financial Risk Governance Platform
+
+# Credit Risk Data Schema
+credit_risk:
+  customer_data:
+    table_name: "customers"
+    fields:
+      customer_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      customer_type:
+        type: "enum"
+        values: ["retail", "corporate", "sme", "financial_institution"]
+        nullable: false
+      credit_score:
+        type: "integer"
+        min_value: 300
+        max_value: 850
+        nullable: true
+      annual_income:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: true
+      debt_to_income_ratio:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: true
+      employment_length_months:
+        type: "integer"
+        min_value: 0
+        nullable: true
+      created_date:
+        type: "timestamp"
+        nullable: false
+        default: "CURRENT_TIMESTAMP"
+
+  loan_data:
+    table_name: "loans"
+    fields:
+      loan_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      customer_id:
+        type: "varchar"
+        length: 50
+        foreign_key: "customers.customer_id"
+        nullable: false
+      loan_amount:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      interest_rate:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: false
+      loan_term_months:
+        type: "integer"
+        nullable: false
+      loan_purpose:
+        type: "enum"
+        values: ["home", "auto", "business", "personal", "education"]
+        nullable: false
+      collateral_value:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: true
+      loan_status:
+        type: "enum"
+        values: ["active", "closed", "defaulted", "charged_off"]
+        nullable: false
+      origination_date:
+        type: "date"
+        nullable: false
+      maturity_date:
+        type: "date"
+        nullable: false
+
+# Market Risk Data Schema
+market_risk:
+  portfolio_positions:
+    table_name: "portfolio_positions"
+    fields:
+      position_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      instrument_id:
+        type: "varchar"
+        length: 50
+        nullable: false
+      instrument_type:
+        type: "enum"
+        values: ["equity", "bond", "derivative", "currency", "commodity"]
+        nullable: false
+      position_size:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      market_value:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      currency:
+        type: "char"
+        length: 3
+        nullable: false
+      portfolio_id:
+        type: "varchar"
+        length: 50
+        nullable: false
+      position_date:
+        type: "date"
+        nullable: false
+      risk_weight:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: true
+
+  market_data:
+    table_name: "market_data"
+    fields:
+      data_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      instrument_id:
+        type: "varchar"
+        length: 50
+        nullable: false
+      price:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: false
+      volume:
+        type: "bigint"
+        nullable: true
+      bid_price:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: true
+      ask_price:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: true
+      volatility:
+        type: "decimal"
+        precision: 8
+        scale: 6
+        nullable: true
+      data_timestamp:
+        type: "timestamp"
+        nullable: false
+
+# Operational Risk Data Schema
+operational_risk:
+  loss_events:
+    table_name: "operational_loss_events"
+    fields:
+      event_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      business_line:
+        type: "enum"
+        values: ["corporate_finance", "trading", "retail_banking", "commercial_banking", "payment_settlement", "agency_services", "asset_management", "retail_brokerage"]
+        nullable: false
+      event_type:
+        type: "enum"
+        values: ["internal_fraud", "external_fraud", "employment_practices", "clients_products", "damage_physical_assets", "business_disruption", "execution_delivery"]
+        nullable: false
+      loss_amount:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      recovery_amount:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: true
+        default: 0
+      currency:
+        type: "char"
+        length: 3
+        nullable: false
+      event_date:
+        type: "date"
+        nullable: false
+      discovery_date:
+        type: "date"
+        nullable: false
+      settlement_date:
+        type: "date"
+        nullable: true
+      description:
+        type: "text"
+        nullable: true
+
+  risk_indicators:
+    table_name: "key_risk_indicators"
+    fields:
+      kri_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      kri_name:
+        type: "varchar"
+        length: 200
+        nullable: false
+      business_line:
+        type: "varchar"
+        length: 100
+        nullable: false
+      kri_value:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: false
+      threshold_green:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: true
+      threshold_amber:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: true
+      threshold_red:
+        type: "decimal"
+        precision: 15
+        scale: 6
+        nullable: true
+      measurement_date:
+        type: "date"
+        nullable: false
+      frequency:
+        type: "enum"
+        values: ["daily", "weekly", "monthly", "quarterly"]
+        nullable: false
+
+# Liquidity Risk Data Schema
+liquidity_risk:
+  cash_flows:
+    table_name: "cash_flows"
+    fields:
+      cash_flow_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      instrument_id:
+        type: "varchar"
+        length: 50
+        nullable: false
+      cash_flow_type:
+        type: "enum"
+        values: ["inflow", "outflow"]
+        nullable: false
+      amount:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      currency:
+        type: "char"
+        length: 3
+        nullable: false
+      maturity_bucket:
+        type: "enum"
+        values: ["overnight", "1_week", "1_month", "3_months", "6_months", "1_year", "over_1_year"]
+        nullable: false
+      expected_date:
+        type: "date"
+        nullable: false
+      stress_haircut:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: true
+        default: 0
+
+  funding_sources:
+    table_name: "funding_sources"
+    fields:
+      funding_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      funding_type:
+        type: "enum"
+        values: ["deposits", "wholesale_funding", "capital", "credit_facilities"]
+        nullable: false
+      counterparty:
+        type: "varchar"
+        length: 200
+        nullable: true
+      amount:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      currency:
+        type: "char"
+        length: 3
+        nullable: false
+      maturity_date:
+        type: "date"
+        nullable: true
+      interest_rate:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: true
+      stability_factor:
+        type: "decimal"
+        precision: 3
+        scale: 2
+        nullable: true
+
+# Regulatory Reporting Schema
+regulatory_reporting:
+  capital_ratios:
+    table_name: "capital_ratios"
+    fields:
+      report_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      reporting_date:
+        type: "date"
+        nullable: false
+      tier1_capital:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      tier2_capital:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      total_capital:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      risk_weighted_assets:
+        type: "decimal"
+        precision: 15
+        scale: 2
+        nullable: false
+      tier1_ratio:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: false
+      total_capital_ratio:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: false
+      leverage_ratio:
+        type: "decimal"
+        precision: 5
+        scale: 4
+        nullable: true
+
+# Data Lineage and Audit Schema
+data_governance:
+  data_lineage:
+    table_name: "data_lineage"
+    fields:
+      lineage_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      source_system:
+        type: "varchar"
+        length: 100
+        nullable: false
+      source_table:
+        type: "varchar"
+        length: 100
+        nullable: false
+      target_system:
+        type: "varchar"
+        length: 100
+        nullable: false
+      target_table:
+        type: "varchar"
+        length: 100
+        nullable: false
+      transformation_rule:
+        type: "text"
+        nullable: true
+      created_date:
+        type: "timestamp"
+        nullable: false
+      created_by:
+        type: "varchar"
+        length: 100
+        nullable: false
+
+# Model Metadata Schema
+model_metadata:
+  model_registry:
+    table_name: "model_registry"
+    fields:
+      model_id:
+        type: "varchar"
+        length: 50
+        primary_key: true
+        nullable: false
+      model_name:
+        type: "varchar"
+        length: 200
+        nullable: false
+      model_type:
+        type: "enum"
+        values: ["credit_risk", "market_risk", "operational_risk", "liquidity_risk"]
+        nullable: false
+      algorithm:
+        type: "varchar"
+        length: 100
+        nullable: false
+      model_version:
+        type: "varchar"
+        length: 20
+        nullable: false
+      training_date:
+        type: "date"
+        nullable: false
+      validation_date:
+        type: "date"
+        nullable: true
+      production_date:
+        type: "date"
+        nullable: true
+      model_status:
+        type: "enum"
+        values: ["development", "testing", "validated", "production", "retired"]
+        nullable: false
+      performance_metrics:
+        type: "json"
+        nullable: true
+      created_by:
+        type: "varchar"
+        length: 100
+        nullable: false
